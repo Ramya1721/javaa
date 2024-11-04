@@ -1,0 +1,13 @@
+package java_app;
+class Exc0
+{
+    void meth()
+    {
+	int d = 0;
+       	int a = 42 / d;
+        }
+public static void main(String[] args) {
+        Exc0 ob=new Exc0();
+        ob.meth();
+      }
+}

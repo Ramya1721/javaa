@@ -1,0 +1,89 @@
+package java_app;
+class Box{
+	double length;
+	double width;
+	double height;
+	Box(){
+		length=-1;
+		width=-1;
+		height=-1;
+	}
+	Box(double len,double wid,double hgt){
+		length=len;
+		width=wid;
+		height=hgt;
+	}
+	Box(Box ob){
+		length=ob.length;
+		width=ob.width;
+		height=ob.height;
+	}
+	Box(double len)
+	{
+		width=height=length=len;
+	}
+	double volume() {
+		return length*width*height;
+	}
+}
+class BoxWeight extends Box{
+	double weight;
+	BoxWeight(){
+		super();
+		weight=-1;
+	}
+	BoxWeight(double len,double wid,double hgt,double wt)
+	{
+		super(len,wid,hgt);
+		weight=wt;
+	}
+	BoxWeight(BoxWeight ob){
+		super(ob);
+		weight=ob.weight;
+	}
+	BoxWeight(double len,double wt)
+	{
+		super(len);
+		weight=wt;
+	}
+}
+class Shipment extends BoxWeight{
+	double cost;
+	Shipment()
+	{
+		super();
+		cost=-1;
+	}
+	Shipment(double len,double wid,double hgt,double wt,double c)
+	{
+		super(len,wid,hgt,wt);
+		cost=c;
+	}
+	Shipment(Shipment ob){
+		super(ob);
+		cost=ob.cost;
+	}
+	Shipment(double len,double wt,double c)
+	{
+		super(len,wt);
+		cost=c;	
+	}
+}
+
+public class Prg4_BoxClassApplication {
+	public static void main(String[] args) {
+		Shipment Shipment1=new Shipment(10,20,30,25,12.5);
+		Shipment Shipment2=new Shipment(2,3,4,20,10.5);
+		System.out.println("Volume of Shipment1 is "+Shipment1.volume());
+		System.out.println("Weight of Shipment1 is "+Shipment1.weight);
+		System.out.println("Cost of Shipment1 is "+Shipment1.cost);
+		System.out.println();
+		
+		System.out.println("Volume of Shipment2 is "+Shipment2.volume());
+		System.out.println("Weight of Shipment2 is "+Shipment2.weight);
+		System.out.println("Cost of Shipment2 is "+Shipment2.cost);
+		
+	}
+
+
+}
